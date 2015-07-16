@@ -1,0 +1,14 @@
+*.class
+
+# Package Files #
+*.jar
+*.war
+*.ear
+*.db
+.classpath
+.project
+.settings
+lib
+target
+webapp/upload
+bin

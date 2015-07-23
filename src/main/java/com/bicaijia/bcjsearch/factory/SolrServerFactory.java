@@ -15,7 +15,7 @@ public class SolrServerFactory {
         if (null == type) {
             return null;
         } else {
-            ClassPathResource resource = new ClassPathResource("/config/application.properties");
+            ClassPathResource resource = new ClassPathResource("/config/solr.properties");
             HttpSolrServer solrServer = null;
             try {
                 Properties property = PropertiesLoaderUtils.loadProperties(resource);

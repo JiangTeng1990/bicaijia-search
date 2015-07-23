@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.bicaijia.bcjsearch.domain.SupplierDO;
 import com.bicaijia.bcjsearch.query.IndexQuery;
+import com.bicaijia.bcjsearch.result.Result;
 import com.bicaijia.bcjsearch.util.OrArrayList;
 
 public interface SupplierIndexAO {
@@ -18,4 +19,6 @@ public interface SupplierIndexAO {
      * @return
      */
     public OrArrayList<String> selectRegionSuppliers(IndexQuery indexQuery) ;
+
+    public Result search(IndexQuery indexQuery) throws Exception;
 }

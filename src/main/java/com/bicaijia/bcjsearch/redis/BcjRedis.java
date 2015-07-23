@@ -5,58 +5,29 @@ import java.io.ByteArrayOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
-import redis.clients.jedis.JedisPoolConfig;
 
 @Component("bcjRedis")
 public class BcjRedis {
 
-    private static JedisPool pool;
-    // private Jedis jedis;
+   @Autowired
+   private JedisPool pool;
+   
+   @Value("${redis.expireTime}")
+   private Integer expireTime;
 
-    @Value("redis.host")
-    private String host;// Redis服务所在地址
-
-    @Value("redis.port")
-    private int port;// 主机端口
-
-    public void setHost(String host) {
-        this.host = host;
-    }
-
-    public void setPort(int port) {
-        this.port = port;
-    }
-
-    /**
-     * 初始化jedis
-     */
-    public void init() {
-        JedisPoolConfig config = new JedisPoolConfig();
-        // 控制一个pool可分配多少个jedis实例，通过pool.getResource()来获取；
-        // 如果赋值为-1，则表示不限制；如果pool已经分配了maxActive个jedis实例，则此时pool的状态为exhausted(耗尽)。
-        config.setMaxActive(50);
-        // 控制一个pool最多有多少个状态为idle(空闲的)的jedis实例。
-        config.setMaxIdle(5);
-        // 表示当borrow(引入)一个jedis实例时，最大的等待时间，如果超过等待时间，则直接抛出JedisConnectionException；
-        config.setMaxWait(1000 * 100);
-        // 在borrow一个jedis实例时，是否提前进行validate操作；如果为true，则得到的jedis实例均是可用的；
-        config.setTestOnBorrow(true);
-        pool = new JedisPool(config, host, port);
-        // jedis = new Jedis(host, port);
-    }
-
-    public static void returnJedis(Jedis redis) {
+    public void returnJedis(Jedis redis) {
         if (redis != null) {
-            pool.returnResource(redis);
+            pool.returnResourceObject(redis);
         }
     }
 
-    public static Jedis getJedis() {
+    public Jedis getJedis() {
         return pool.getResource();
     }
 
@@ -160,5 +131,18 @@ public class BcjRedis {
             returnJedis(redis);
         }
         return null;
+    }
+    
+    public void setex(String key, Object value) {
+        Jedis redis = null;
+        try {
+            redis = getJedis();
+            redis.setex(objectToBytes(key), expireTime, objectToBytes(value));
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            // 这里很重要，一旦拿到的jedis实例使用完毕，必须要返还给池中
+            returnJedis(redis);
+        }
     }
 }

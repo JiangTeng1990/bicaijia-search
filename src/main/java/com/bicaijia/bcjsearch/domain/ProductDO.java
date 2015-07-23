@@ -13,261 +13,184 @@ public class ProductDO {
     @Field
     private String productCode;
     @Field
-    private String measurementMethod;
-    @Field
     private String productRemark;
     @Field
     private String guidAttr;//导购属性
     
     //产品分类信息
     @Field
-    private Long productCategoryId;
+    private Integer productCategoryId;
     @Field
     private String categoryName;
     @Field
     private Integer levelId;//分类级别
     @Field
-    private Long parentId;//父一级分类
+    private Integer parentId;//父一级分类
     @Field
     private String icon;//图标
     @Field
     private Integer showOrder;//展现顺序
+    @Field
+    private Integer salesCount;
+    @Field
+    private Integer collCount;
+    @Field
+    private Float minPrice;
     
 //  属性字典 集合    
     @Field
-    private List<Long> productAttrDictId;
+    private List<Integer> productAttrId;
     @Field
-    private List<Integer> productCategoryDictId;
+    private List<Integer> categoryAttrId;
     @Field
-    private List<String> productCategoryDictName;
-      
+    private List<Integer> categoryAttrValueId;
+     
     //供应商id + name
     @Field
     private List<Integer> supplierId;
 
-    /**
-     * @return the id
-     */
     public String getId() {
         return id;
     }
 
-    /**
-     * @param id the id to set
-     */
     public void setId(String id) {
         this.id = id;
     }
 
-    /**
-     * @return the productName
-     */
     public String getProductName() {
         return productName;
     }
 
-    /**
-     * @param productName the productName to set
-     */
     public void setProductName(String productName) {
         this.productName = productName;
     }
 
-    /**
-     * @return the productCode
-     */
     public String getProductCode() {
         return productCode;
     }
 
-    /**
-     * @param productCode the productCode to set
-     */
     public void setProductCode(String productCode) {
         this.productCode = productCode;
     }
 
-    /**
-     * @return the measurementMethod
-     */
-    public String getMeasurementMethod() {
-        return measurementMethod;
-    }
-
-    /**
-     * @param measurementMethod the measurementMethod to set
-     */
-    public void setMeasurementMethod(String measurementMethod) {
-        this.measurementMethod = measurementMethod;
-    }
-
-    /**
-     * @return the productRemark
-     */
     public String getProductRemark() {
         return productRemark;
     }
 
-    /**
-     * @param productRemark the productRemark to set
-     */
     public void setProductRemark(String productRemark) {
         this.productRemark = productRemark;
     }
 
-    /**
-     * @return the guidAttr
-     */
     public String getGuidAttr() {
         return guidAttr;
     }
 
-    /**
-     * @param guidAttr the guidAttr to set
-     */
     public void setGuidAttr(String guidAttr) {
         this.guidAttr = guidAttr;
     }
 
-    /**
-     * @return the productCategoryId
-     */
-    public Long getProductCategoryId() {
+    public Integer getProductCategoryId() {
         return productCategoryId;
     }
 
-    /**
-     * @param productCategoryId the productCategoryId to set
-     */
-    public void setProductCategoryId(Long productCategoryId) {
+    public void setProductCategoryId(Integer productCategoryId) {
         this.productCategoryId = productCategoryId;
     }
 
-    /**
-     * @return the categoryName
-     */
     public String getCategoryName() {
         return categoryName;
     }
 
-    /**
-     * @param categoryName the categoryName to set
-     */
     public void setCategoryName(String categoryName) {
         this.categoryName = categoryName;
     }
 
-    /**
-     * @return the levelId
-     */
     public Integer getLevelId() {
         return levelId;
     }
 
-    /**
-     * @param levelId the levelId to set
-     */
     public void setLevelId(Integer levelId) {
         this.levelId = levelId;
     }
 
-    /**
-     * @return the parentId
-     */
-    public Long getParentId() {
+    public Integer getParentId() {
         return parentId;
     }
 
-    /**
-     * @param parentId the parentId to set
-     */
-    public void setParentId(Long parentId) {
+    public void setParentId(Integer parentId) {
         this.parentId = parentId;
     }
 
-    /**
-     * @return the icon
-     */
     public String getIcon() {
         return icon;
     }
 
-    /**
-     * @param icon the icon to set
-     */
     public void setIcon(String icon) {
         this.icon = icon;
     }
 
-    /**
-     * @return the showOrder
-     */
     public Integer getShowOrder() {
         return showOrder;
     }
 
-    /**
-     * @param showOrder the showOrder to set
-     */
     public void setShowOrder(Integer showOrder) {
         this.showOrder = showOrder;
     }
 
-    /**
-     * @return the productAttrDictId
-     */
-    public List<Long> getProductAttrDictId() {
-        return productAttrDictId;
+    public List<Integer> getProductAttrId() {
+        return productAttrId;
     }
 
-    /**
-     * @param productAttrDictId the productAttrDictId to set
-     */
-    public void setProductAttrDictId(List<Long> productAttrDictId) {
-        this.productAttrDictId = productAttrDictId;
+    public void setProductAttrId(List<Integer> productAttrId) {
+        this.productAttrId = productAttrId;
     }
 
-    /**
-     * @return the productCategoryDictId
-     */
-    public List<Integer> getProductCategoryDictId() {
-        return productCategoryDictId;
+    public List<Integer> getCategoryAttrId() {
+        return categoryAttrId;
     }
 
-    /**
-     * @param productCategoryDictId the productCategoryDictId to set
-     */
-    public void setProductCategoryDictId(List<Integer> productCategoryDictId) {
-        this.productCategoryDictId = productCategoryDictId;
+    public void setCategoryAttrId(List<Integer> categoryAttrId) {
+        this.categoryAttrId = categoryAttrId;
     }
 
-    /**
-     * @return the productCategoryDictName
-     */
-    public List<String> getProductCategoryDictName() {
-        return productCategoryDictName;
+    public List<Integer> getCategoryAttrValueId() {
+        return categoryAttrValueId;
     }
 
-    /**
-     * @param productCategoryDictName the productCategoryDictName to set
-     */
-    public void setProductCategoryDictName(List<String> productCategoryDictName) {
-        this.productCategoryDictName = productCategoryDictName;
+    public void setCategoryAttrValueId(List<Integer> categoryAttrValueId) {
+        this.categoryAttrValueId = categoryAttrValueId;
     }
 
-    /**
-     * @return the supplier
-     */
     public List<Integer> getSupplierId() {
         return supplierId;
     }
 
-    /**
-     * @param supplier the supplier to set
-     */
-    public void setSupplier(List<Integer> supplierId) {
+    public void setSupplierId(List<Integer> supplierId) {
         this.supplierId = supplierId;
     }
 
-    
+    public Integer getSalesCount() {
+        return salesCount;
+    }
+
+    public void setSalesCount(Integer salesCount) {
+        this.salesCount = salesCount;
+    }
+
+    public Integer getCollCount() {
+        return collCount;
+    }
+
+    public void setCollCount(Integer collCount) {
+        this.collCount = collCount;
+    }
+
+    public Float getMinPrice() {
+        return minPrice;
+    }
+
+    public void setMinPrice(Float minPrice) {
+        this.minPrice = minPrice;
+    }
+   
 }

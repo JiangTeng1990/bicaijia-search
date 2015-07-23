@@ -24,7 +24,7 @@ public class SupplierDO {
     @Field
     private Integer dailyOrderUpperLimit;//每日接单量 false
     @Field
-    private String description; //接单描述
+    private String logisticDescription; //接单描述
     @Field
     private int stars; //评分
     @Field
@@ -36,7 +36,7 @@ public class SupplierDO {
     @Field
     private String bankCardNumber; //银行卡号
     @Field
-    private Integer status; //状态 0：未审核 1：审核通过
+    private boolean status; //状态 0：未审核 1：审核通过
     @Field
     private Integer sales; //负责销售员
     @Field
@@ -48,11 +48,11 @@ public class SupplierDO {
     @Field
     private String tags; //供应商标签
     @Field
-    private String longitude; //经度
+    private Double longitude; //经度
     @Field
-    private String latitude; //纬度
+    private Double latitude; //纬度
     @Field
-    private List<Integer> aroundCafeId;//服务区域的餐厅
+    private List<Integer> arroundCafeId;//服务区域的餐厅
     @Field
     private List<Double> arroundCafeDistance;//附近
     @Field
@@ -188,14 +188,14 @@ public class SupplierDO {
      * @return the description
      */
     public String getDescription() {
-        return description;
+        return logisticDescription;
     }
 
     /**
      * @param description the description to set
      */
-    public void setDescription(String description) {
-        this.description = description;
+    public void setDescription(String logisticDescription) {
+        this.logisticDescription = logisticDescription;
     }
 
     /**
@@ -268,17 +268,19 @@ public class SupplierDO {
         this.bankCardNumber = bankCardNumber;
     }
 
-    /**
-     * @return the status
-     */
-    public Integer getStatus() {
+    public String getLogisticDescription() {
+        return logisticDescription;
+    }
+
+    public void setLogisticDescription(String logisticDescription) {
+        this.logisticDescription = logisticDescription;
+    }
+
+    public boolean isStatus() {
         return status;
     }
 
-    /**
-     * @param status the status to set
-     */
-    public void setStatus(Integer status) {
+    public void setStatus(boolean status) {
         this.status = status;
     }
 
@@ -352,31 +354,20 @@ public class SupplierDO {
         this.tags = tags;
     }
 
-    /**
-     * @return the longitude
-     */
-    public String getLongitude() {
+
+    public Double getLongitude() {
         return longitude;
     }
 
-    /**
-     * @param longitude the longitude to set
-     */
-    public void setLongitude(String longitude) {
+    public void setLongitude(Double longitude) {
         this.longitude = longitude;
     }
 
-    /**
-     * @return the latitude
-     */
-    public String getLatitude() {
+    public Double getLatitude() {
         return latitude;
     }
 
-    /**
-     * @param latitude the latitude to set
-     */
-    public void setLatitude(String latitude) {
+    public void setLatitude(Double latitude) {
         this.latitude = latitude;
     }
 
@@ -394,18 +385,12 @@ public class SupplierDO {
         this.supplyRegionId = supplyRegionId;
     }
 
-    /**
-     * @return the aroundCafeId
-     */
-    public List<Integer> getAroundCafeId() {
-        return aroundCafeId;
+    public List<Integer> getArroundCafeId() {
+        return arroundCafeId;
     }
 
-    /**
-     * @param aroundCafeId the aroundCafeId to set
-     */
-    public void setAroundCafeId(List<Integer> aroundCafeId) {
-        this.aroundCafeId = aroundCafeId;
+    public void setArroundCafeId(List<Integer> arroundCafeId) {
+        this.arroundCafeId = arroundCafeId;
     }
 
     /**

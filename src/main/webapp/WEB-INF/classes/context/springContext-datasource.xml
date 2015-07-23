@@ -78,7 +78,7 @@
 		</property>
 	</bean>
 	
-	<!-- jedis属性配置 
+	<!-- jedis属性配置  -->
 	<bean id="poolConfig" class="redis.clients.jedis.JedisPoolConfig">  
    		<property name="maxIdle" value="${redis.maxIdle}" />  
         <property name="maxTotal" value="${redis.maxActive}" />  
@@ -93,7 +93,7 @@
         <constructor-arg type="int" value="${redis.port}" />
         <constructor-arg type="int" value="${redis.timeout}" />
      </bean> 
-    -->
+    
     
      <!-- sqlmap dao impl -->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">

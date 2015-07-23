@@ -1,14 +1,5 @@
-*.class
-
-# Package Files #
-*.jar
-*.war
-*.ear
-*.db
-.classpath
-.project
-.settings
-lib
+.*
+**/*.class
+**/*.jar
 target
-webapp/upload
-bin
+**/classes/*.*

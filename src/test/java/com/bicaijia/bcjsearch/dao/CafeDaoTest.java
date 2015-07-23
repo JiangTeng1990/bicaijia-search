@@ -1,11 +1,10 @@
 package com.bicaijia.bcjsearch.dao;
 
-import static org.junit.Assert.*;
 
 import org.junit.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.bicaijia.bcjsearch.entity.Cafe;
+import com.bicaijia.bcjsearch.domain.Cafe;
 
 public class CafeDaoTest {
     

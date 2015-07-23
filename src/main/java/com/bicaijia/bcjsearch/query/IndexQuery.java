@@ -1,11 +1,12 @@
 package com.bicaijia.bcjsearch.query;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.bicaijia.bcjsearch.entity.Cafe;
+import com.bicaijia.bcjsearch.domain.Cafe;
 
 /**
  * 索引用的query
@@ -30,6 +31,8 @@ public class IndexQuery implements Serializable {
     private String query; // 关键词
     
     private Map<String, Object> filterField = new HashMap<String, Object>();
+    
+    private List<String> fields = new ArrayList<String>();//要查询出的字段
     
     private Integer pageNo;
     private Integer pageRows;
@@ -366,5 +369,13 @@ public class IndexQuery implements Serializable {
         this.cafe = cafe;
     }
 
+    public List<String> getFields() {
+        return fields;
+    }
+
+    public void setFields(List<String> fields) {
+        this.fields = fields;
+    }
+    
 
 }

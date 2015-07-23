@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bicaijia.bcjsearch.dao.CafeDao">
+	<resultMap type="com.bicaijia.bcjsearch.domain.Cafe" id="cafeResultMap">
+		<id column="cafe_id" property="cafeId"></id>
+		<result column="region_id" property="regionId"/>
+	</resultMap>
+	<sql id="selectAllColumn">
+		select * from user.cafe
+	</sql>
+	<select id="selectByCafeId" parameterType="java.lang.Integer" resultMap="cafeResultMap">
+		<include refid="selectAllColumn"></include>
+		where cafe_id=#{cafeId}#
+	</select>
+
+</mapper>
